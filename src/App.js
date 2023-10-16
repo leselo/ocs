@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import Main from "./Main";
+import About from "./About";
+import Err404page from "./Err404page";
+import RootLayout from "./RootLayout";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+
+import "./css/App.css";
+
+const rouTer = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Main />}></Route>
+      <Route path="About" element={<About />}></Route>
+      <Route path="*" element={<Err404page />}></Route>
+    </Route>
+  )
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RouterProvider router={rouTer} />
+      <div>&nbsp;</div>
+      <div>&nbsp; </div>
+      <div>&nbsp; </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "5px",
+          right: "10px",
+          color: "gray",
+          float: "right",
+          fontSize: "0.7em",
+        }}
+      >
+        This site was developed by Laszlo Elo with ReactJS 2023
+      </div>
+    </>
   );
 }
 
