@@ -1,5 +1,6 @@
 import Main from "./Main";
 import About from "./About";
+import Contact from "./Contact";
 import Err404page from "./Err404page";
 import RootLayout from "./RootLayout";
 import {
@@ -16,6 +17,7 @@ const rouTer = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Main />}></Route>
       <Route path="About" element={<About />}></Route>
+      <Route path="Contact" element={<Contact />}></Route>
       <Route path="*" element={<Err404page />}></Route>
     </Route>
   )
@@ -36,10 +38,9 @@ function App() {
           color: "gray",
           float: "right",
           fontSize: "0.7em",
+          background: "yellow",
         }}
-      >
-        This site was developed by Laszlo Elo with ReactJS 2023
-      </div>
+      ></div>
     </>
   );
 }
