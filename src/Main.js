@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import oscf from "./images/OCSF.png";
 import oscb from "./images/OCSB.png";
 import "./css/App.css";
 // Main (default) page used as OCS
 // uses diaplay: GRID
+
 const Main = () => {
+  const [showFront, setShowFront] = useState(true);
+
   return (
     <>
       <div>
         <div style={{ background: "inherit", padding: "40px" }}></div>
 
         <div className="about">
-          <div className="bgw50cb">
+          <div>
             <p>
               Experience a new level of efficiency and convenience with our
               automatic Occupancy Counter Sensor. Stay in control of occupancy
@@ -30,39 +34,42 @@ const Main = () => {
               signs."
             </p>
             <div
-              style={{ display: "flex", width: "100%", background: "inherit" }}
+              style={{
+                display: "flex",
+                background: "inherit",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
-              <div style={{ width: "50%" }}>
+              <div style={{ background: "inherit" }}>
                 <div className="item">
-                  <div className="card">
-                    <img src={oscf} alt="OCS-Front" style={{ width: "100%" }} />
-                    <div className="container">
-                      <h4>
-                        <b>Front</b>
-                      </h4>
+                  <div>
+                    <div className="flip-box">
+                      <div
+                        onClick={() => {
+                          showFront ? setShowFront(false) : setShowFront(true);
+                        }}
+                        className={`${
+                          showFront
+                            ? "flip-box-inner"
+                            : "flip-box-inner flip-box-innerA"
+                        }`}
+                      >
+                        <div className="flip-box-front">
+                          <img width="100%" src={oscf} alt="Back" />
+                          Front
+                        </div>
+                        <div className="flip-box-back">
+                          <img width="100%" src={oscb} alt="Front" />
+                          Back
+                        </div>
+                      </div>
                     </div>
+                    <div className="container"></div>
                   </div>
                 </div>
-                <span style={{ color: "black", fontSize: "0.8em" }}>
-                  Direction into the room: Right to Left (from U2 to U1)
-                </span>
+
                 <br />
-              </div>
-              <div style={{ width: "50%" }}>
-                <div className="item">
-                  <div className="card" style={{ float: "right" }}>
-                    <img
-                      src={oscb}
-                      alt="OCS-Back"
-                      style={{ float: "right", width: "100%" }}
-                    />
-                    <div className="container">
-                      <h4>
-                        <b>Back</b>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 

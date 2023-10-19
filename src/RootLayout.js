@@ -4,8 +4,8 @@ export default function RootLayout() {
   return (
     <div>
       <header>
-        <nav className="bgw50cb">
-          <h1 style={{ background: "yellow", color: "black" }}>
+        <nav className="about">
+          <h1 style={{ background: "yellow", padding: "3px" }}>
             Occupancy Counter Sensor
           </h1>
           <span>
